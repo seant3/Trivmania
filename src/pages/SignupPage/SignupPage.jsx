@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
-import userService from "../../utils/userService"
 
-function SignUpPage() {
+import { useNavigate } from "react-router-dom";
+
+import userService from "../../utils/userService";
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+
+
+function SignupPage({handleSignupOrLogin}) {
     const [error, setError] = useState('')
     const [state, setState] = useState({
         username: '',
@@ -11,6 +16,8 @@ function SignUpPage() {
         passwordConf: '',
         bio: ''
     });
+
+    const navigate = useNavigate();
 
     function handleChange(e) {
         setState({
@@ -22,15 +29,12 @@ function SignUpPage() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        for (let fieldName in state) {
-            console.log(fieldName, state[fieldName])
-            FormData.append(fieldName, state[fieldName])
-        }
         try {
-            console.log(formData.forEach((item) => console.log(item)))
-            await userService.signup(formData);
+            await userService.signup(state);
+            handleSignupOrLogin();
+            navigate('/')
         } catch (err) {
-            console.log(err, "<<<Handle Submit Signup Page")
+            console.log(err.message)
             setError(err.message)
         }
     }
@@ -92,4 +96,4 @@ function SignUpPage() {
     );
 }
 
-export default SignUpPage;
+export default SignupPage;

@@ -12,7 +12,7 @@ export default {
 
 async function signup(req, res) {
   console.log('hitting signup router')
-  console.log(req.body, req.file)
+  console.log(req.body)
   const user = new User(req.body);
   try {
     await user.save();

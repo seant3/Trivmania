@@ -3,6 +3,7 @@ import tokenService from './tokenService';
 const BASE_URL = '/api/users/';
 
 function signup(user) {
+  console.log(user.body)
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),  // If you are sending a file/photo over
@@ -12,7 +13,11 @@ function signup(user) {
   .then(res => {
     if (res.ok) return res.json();
     // Probably a duplicate email
-    throw new Error('Email already taken!');
+
+    return res.json().then(response => {
+      console.log(response.error);
+      throw new Error('Email already taken!');
+    })
   })
   // Parameter destructuring!
   .then(({token}) => tokenService.setToken(token));
