@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
+import { Button, Form, Grid, Header, Segment, Message } from "semantic-ui-react";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import userService from "../../utils/userService";
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 
-function SignupPage({handleSignupOrLogin}) {
+export default function SignupPage({handleSignupOrLogin}) {
     const [error, setError] = useState('')
     const [state, setState] = useState({
         username: '',
@@ -73,7 +73,7 @@ function SignupPage({handleSignupOrLogin}) {
                <Form.Input
                  name="passwordConf"
                  type="password"
-                 placeholder="Confirm Password"
+                 placeholder="confirm password"
                  value={state.passwordConf}
                  onChange={handleChange}
                  required
@@ -90,10 +90,11 @@ function SignupPage({handleSignupOrLogin}) {
              </Segment>
              {error ? <ErrorMessage error={error} /> : null}
            </Form>
+           <Message>
+            Existing User? <Link to="/login">Login!</Link>
+           </Message>
          </Grid.Column>
        </Grid>
    
     );
 }
-
-export default SignupPage;
