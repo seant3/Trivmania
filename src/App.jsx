@@ -4,6 +4,7 @@ import "./App.css";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
+import PostQuestionPage from "./pages/PostQuestionPage/PostQuestionPage";
 
 import userService from "./utils/userService";
 
@@ -16,9 +17,10 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<h1>Home Pageeeeeeeeeee</h1>} />
+      <Route path="/" element={<h1>Home Page</h1>} />
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/signup" element={<SignupPage handleSignupOrLogin={handleSignupOrLogin}/>} />
+      <Route path="/community" element={<PostQuestionPage />} />
     </Routes>
   );
 }
