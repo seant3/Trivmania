@@ -4,7 +4,7 @@ import "./App.css";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-import PostQuestionPage from "./pages/PostQuestionPage/PostQuestionPage";
+import FeedPage from "./pages/FeedPage/FeedPage";
 
 import userService from "./utils/userService";
 
@@ -20,7 +20,7 @@ export default function App() {
       <Route path="/home" element={<h1>Home Page</h1>} />
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/signup" element={<SignupPage handleSignupOrLogin={handleSignupOrLogin}/>} />
-      <Route path="/" element={<PostQuestionPage />} />
+      <Route path="/" element={<FeedPage />} />
     </Routes>
   );
 }

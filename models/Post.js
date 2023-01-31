@@ -6,7 +6,7 @@ const likeSchema = mongoose.Schema({
 })
 
 const postSchema = new mongoose.Schema({
-    player: { type: mongoose.Schema.Types.ObjectID, ref: 'User'},
+    user: { type: mongoose.Schema.Types.ObjectID, ref: 'User'},
     score: {Number, min: 0},
     category: String,
     question: String,

@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import PageHeader from "../../components/PageHeader/PageHeader";
 import AddQuestionForm from "../../components/AddQuestionForm/AddQuestionForm";
-import CommunityIndex from "../../components/CommunityIndex/CommunityIndex";
+import PostDisplay from '../../components/PostDisplay/PostDisplay';
 
 import { Grid } from "semantic-ui-react";
 
@@ -23,6 +23,22 @@ export default function PostQuestionPage() {
         }
     }
 
+    async function getPosts() {
+        try {
+            const response = await postsQuestionAPI.getAll();
+            console.log(response, " data");
+            setPosts(response.data);
+        } catch (err) {
+            console.log(err.message, " this is the error in GetPosts")
+        }
+    }
+
+    useEffect(() => {
+        getPosts();
+    }, []);
+
+
+
     return (  
         <Grid centered>
             <Grid.Row>
@@ -37,7 +53,7 @@ export default function PostQuestionPage() {
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <CommunityIndex />
+                    <PostDisplay posts={posts}/>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

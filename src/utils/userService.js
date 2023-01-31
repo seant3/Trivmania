@@ -3,7 +3,7 @@ import tokenService from './tokenService';
 const BASE_URL = '/api/users/';
 
 function signup(user) {
-  console.log(user.body)
+  console.log(user.body, "This is in the userService")
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
     headers: new Headers({'Content-Type': 'application/json'}),  // If you are sending a file/photo over

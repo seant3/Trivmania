@@ -1,8 +1,18 @@
-function QuestionCard(props) { 
+import { Card, Icon } from "semantic-ui-react";
+
+function QuestionCard({post}) { 
 
     return (
-      <div>I will render each post as a semantic ui card</div>
+      <Card key={post._id} raised>
+        <Card.Content textAlign="left">
+          <Card.Description>{post.question}</Card.Description>
+        </Card.Content>
+        <Card.Content extra textAlign={"right"}>
+          <Icon name={"heart"} size="large" />
+          Likes
+        </Card.Content>
+      </Card>  
     );
   }
   
-  export default PostCard;
+  export default QuestionCard;
