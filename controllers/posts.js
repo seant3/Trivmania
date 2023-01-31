@@ -14,10 +14,9 @@ async function create(req, res) {
         const post = await Post.create({
             question: req.body.question,
             user: req.user._id,
-            category: req.body.category,
         });
         await post.populate('user')
-        res.status(201).json({ data: post })
+        res.status(201).json({ post })
     } catch (err) {
         console.log(err, "error in posts controller - create")  
         res.status(400).json({ err })      

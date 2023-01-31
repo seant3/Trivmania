@@ -3,6 +3,7 @@ import tokenService from "./tokenService";
 const BASE_URL = "/api/posts";
 
 export function create(data) {
+    console.log("create is firing")
     return fetch(BASE_URL, {
         method: "POST",
         body: data,

@@ -2,6 +2,7 @@ import { Card } from "semantic-ui-react"
 import QuestionCard from "../QuestionCard/QuestionCard"
 
 function PostDisplay({posts}) {
+   console.log(posts, "this is posts in PostDisplay")
  const postsJsx = posts.map((post) => {
     return <QuestionCard post={post} key={post._id} />
  });   

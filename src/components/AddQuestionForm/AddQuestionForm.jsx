@@ -2,22 +2,16 @@ import { useState } from "react";
 import { Button, Form, Grid, Segment } from "semantic-ui-react"
 
 export default function AddQuestionForm({handleAddPost}){
-    const [state, setState] = useState({
-        question: "",
-        category: "",
-    })
+    const [question, setQuestion] = useState('')
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        handleAddPost(state);
+        handleAddPost(question);
     }
 
     function handleChange(e) {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        });
+        setQuestion(e.target.value)
     }
 
     return (
@@ -26,18 +20,12 @@ export default function AddQuestionForm({handleAddPost}){
                 <Form.Input
                     className="form-control"
                     name="question"
-                    value={state.question}
+                    value={question}
                     placeholder="What question do you want to add to the game?"
                     onChange={handleChange}
                     required
                 />
-                <Form.Input
-                    className="form-control"
-                    name="category"
-                    value={state.category}
-                    placeholder="What category is your question?"
-                    onChange={handleChange}
-                />
+                
                 <Button type="submit" className="btn">
                     Post Your Question
                 </Button>
