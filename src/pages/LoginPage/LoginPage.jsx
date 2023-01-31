@@ -1,4 +1,4 @@
-import './LoginPage.css';
+import "./LoginPage.css";
 
 import { useState } from "react";
 import { Button, Form, Grid, Header, Segment, Message } from "semantic-ui-react";
@@ -6,7 +6,7 @@ import { Button, Form, Grid, Header, Segment, Message } from "semantic-ui-react"
 import { useNavigate, Link } from "react-router-dom";
 
 import userService from "../../utils/userService";
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 
 export default function LoginPage({handleSignupOrLogin}) {
