@@ -5,7 +5,7 @@ import postsCtrl from '../../controllers/posts.js';
 
 /*---------- Public Routes ----------*/
 router.post('/', postsCtrl.create);
-router.get('/', postsCtrl.index);
+// router.get('/', postsCtrl.index);
 
 
 /*---------- Protected Routes ----------*/

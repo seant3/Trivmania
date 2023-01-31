@@ -17,10 +17,10 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<h1>Home Page</h1>} />
+      <Route path="/home" element={<h1>Home Page</h1>} />
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/signup" element={<SignupPage handleSignupOrLogin={handleSignupOrLogin}/>} />
-      <Route path="/community" element={<PostQuestionPage />} />
+      <Route path="/" element={<PostQuestionPage />} />
     </Routes>
   );
 }
