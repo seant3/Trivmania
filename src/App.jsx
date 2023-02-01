@@ -7,6 +7,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import FeedPage from "./pages/FeedPage/FeedPage";
 
 import userService from "./utils/userService";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 export default function App() {
   const [user, setUser] = useState(userService.getUser())
@@ -21,6 +22,7 @@ export default function App() {
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/signup" element={<SignupPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/" element={<FeedPage />} />
+      <Route path="/:username" element={<ProfilePage />} />
     </Routes>
   );
 }
