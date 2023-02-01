@@ -1,4 +1,4 @@
-import Post from '../models/Post.js';
+import Post from '../models/post.js';
 import User from '../models/User.js';
 
 export default {
@@ -10,7 +10,7 @@ async function create(req, res) {
     console.log(req.user, " <==== req.user in Posts Controller", req.body)
     try {
         const post = await Post.create({
-            question: req.body.question,
+            question: req.body.data,
             user: req.user._id,
         });
         await post.populate('user')

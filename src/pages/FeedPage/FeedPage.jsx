@@ -13,6 +13,7 @@ export default function PostQuestionPage() {
     const [error, setError] = useState("");
 
     async function handleAddPost(post) {
+        console.log(post, "this is post")
         try {
             const response = await postsQuestionAPI.create(post);
             console.log(response);
@@ -24,9 +25,10 @@ export default function PostQuestionPage() {
     }
 
     async function getPosts() {
+        console.log("getPosts is firing")
         try {
             const response = await postsQuestionAPI.getAll();
-            console.log(response, " data");
+            console.log(response, " response content in getPosts");
             setPosts(response.data);
         } catch (err) {
             console.log(err.message, " this is the error in GetPosts")
