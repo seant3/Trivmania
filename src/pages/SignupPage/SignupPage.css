@@ -1,0 +1,7 @@
+.ui.grid {
+    background: grey;
+}
+
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
+    background: rgb(233, 248, 251);
+}
