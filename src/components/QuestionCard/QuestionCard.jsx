@@ -1,7 +1,7 @@
 import { Card, Icon } from "semantic-ui-react";
 
 function QuestionCard({post}) { 
-
+  console.log(post, "<<<<post in QuestionCard")
     return (
       <Card key={post._id} raised>
         <Card.Content textAlign="left">

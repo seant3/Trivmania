@@ -6,7 +6,7 @@ export default function AddQuestionForm({handleAddPost}){
 
     function handleSubmit(e) {
         e.preventDefault();
-
+        console.log(question, "this is the handleSubmit from user input")
         handleAddPost(question);
     }
 
