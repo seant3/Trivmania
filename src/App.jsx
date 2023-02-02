@@ -23,7 +23,7 @@ export default function App() {
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/signup" element={<SignupPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/" element={<FeedPage loggedUser={user}/>} />
-      <Route path="/:username" element={<ProfilePage />} />
+      <Route path="/:username" element={<ProfilePage loggedUser={user}/>} />
     </Routes>
   );
 }

@@ -1,10 +1,10 @@
 import { Card } from "semantic-ui-react"
-import QuestionCard from "../QuestionCard/QuestionCard"
+import PostCard from "../PostCard/PostCard"
 
 function PostDisplay({posts, isProfile, loggedUser, addLike, deleteLike}) {
    console.log(posts, "this is posts in PostDisplay")
  const postsJsx = posts.map((post) => {
-    return <QuestionCard 
+    return <PostCard 
                post={post} 
                key={post._id} 
                isProfile={isProfile}

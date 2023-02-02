@@ -10,14 +10,31 @@ import userService from '../../utils/userService';
 import { useParams } from "react-router-dom";
 
 
-export default function ProfilePage() {
+export default function ProfilePage({loggedUser}) {
     const [posts, setPosts] = useState([])
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
 
     const { username } = useParams();
 
-    
+    async function addLike(postId) {
+        try {
+            const data = await likesApi.create(postId);
+            getProfile();
+        } catch (err) {
+            console.log(err, "err in addLike Feed Page")
+        }
+    }
+
+    async function deleteLike(likeId) {
+        try {
+            const data = await likesApi.deleteLike(likeId);
+            getProfile();
+        } catch (err) {
+            console.log(err, "err in deleteLike Feed Page")
+        }
+    }
+
     async function getProfile() {
         console.log("Get profile in profile page firing")
             try {
@@ -62,6 +79,9 @@ export default function ProfilePage() {
                     <PostDisplay 
                         posts={posts}
                         isProfile={true}
+                        loggedUser={loggedUser}
+                        addLike={addLike}
+                        deleteLike={deleteLike}
                         />
                 </Grid.Column>
             </Grid.Row>
