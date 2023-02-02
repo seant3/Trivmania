@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-
+import { useParams } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
+
 import ProfileBio from '../../components/ProfileBio/ProfileBio';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import PostDisplay from '../../components/PostDisplay/PostDisplay';
 
 import userService from '../../utils/userService';
-import { useParams } from "react-router-dom";
+import * as likesApi from "../../utils/likesApi";
+
 
 
 export default function ProfilePage({loggedUser}) {
