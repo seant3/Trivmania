@@ -21,7 +21,7 @@ export default function App() {
       <Route path="/home" element={<h1>Home Page</h1>} />
       <Route path="/login" element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
       <Route path="/signup" element={<SignupPage handleSignupOrLogin={handleSignupOrLogin}/>} />
-      <Route path="/" element={<FeedPage />} />
+      <Route path="/" element={<FeedPage loggedUser={user}/>} />
       <Route path="/:username" element={<ProfilePage />} />
     </Routes>
   );

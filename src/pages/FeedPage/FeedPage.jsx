@@ -7,10 +7,30 @@ import PostDisplay from '../../components/PostDisplay/PostDisplay';
 import { Grid } from "semantic-ui-react";
 
 import * as postsQuestionAPI from "../../utils/postQuestionAPI";
+import * as likesApi from "../../utils/likesAPI";
 
-export default function PostQuestionPage() {
+export default function FeedPage({loggedUser}) {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState("");
+
+    async function addLike(postId) {
+        try {
+            const data = await likesApi.create(postId);
+            console.log(data, " this is from addLike")
+            getPosts()
+        } catch (err) {
+            console.log(err, "err in addLike Feed Page")
+        }
+    }
+
+    async function deleteLike(likeId) {
+        try {
+            const data = await likesApi.deleteLike(likeId);
+            getPosts()
+        } catch (err) {
+            console.log(err, "err in deleteLike Feed Page")
+        }
+    }
 
     async function handleAddPost(post) {
         console.log(post, "this is post")
@@ -55,7 +75,13 @@ export default function PostQuestionPage() {
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <PostDisplay posts={posts}/>
+                    <PostDisplay 
+                        posts={posts}
+                        isProfile={false}
+                        addLike={addLike}
+                        deleteLike={deleteLike}
+                        loggedUser={loggedUser}
+                        />
                 </Grid.Column>
             </Grid.Row>
         </Grid>
