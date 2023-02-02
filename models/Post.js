@@ -10,7 +10,8 @@ const postSchema = new mongoose.Schema({
     score: {Number, min: 0},
     category: String,
     question: String,
-    answers: [],
+    correctAnswer: String,
+    wrongAnswers: [],
     likes: [likeSchema]
 })
 
