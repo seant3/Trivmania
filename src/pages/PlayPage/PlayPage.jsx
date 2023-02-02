@@ -7,15 +7,16 @@ export default function PlayPage() {
 
     async function getQuestions() {
         const response = await triviaApi.getQuestions();
-        console.log(response.results[0], "this is the response from getQuestions")
-        setQuestion(response.results.question)
+        console.log(response.results, "this is the response from getQuestions")
+        setQuestion(response.results[0].question)
     }
 
     useEffect(() => {
         getQuestions();
+       
     }, []);
 
-    return (  
-        <div></div>
-    );
+    return (
+        <div>{question}</div>
+    )
 }
