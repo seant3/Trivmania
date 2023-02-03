@@ -2,7 +2,7 @@ import tokenService from "./tokenService";
 
 const BASE_URL = "/api/posts";
 
-export function create(data) {
+function create(data) {
     console.log(data, "create is firing")
     return fetch(BASE_URL, {
         method: "POST",
@@ -21,7 +21,7 @@ export function create(data) {
     });
 }
 
-export function getAll() {
+function getAll() {
     return fetch(BASE_URL, {
         headers: {
             "Authorization": "Bearer " + tokenService.getToken(),
@@ -29,3 +29,8 @@ export function getAll() {
         },
     }).then(res => res.json());
 }
+
+export default {
+    getAll,
+    create
+};
