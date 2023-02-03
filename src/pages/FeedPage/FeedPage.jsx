@@ -25,7 +25,7 @@ export default function FeedPage({loggedUser}) {
 
     async function deleteLike(likeId) {
         try {
-            const data = await likesApi.deleteLike(likeId);
+            const data = await likesApi.removeLike(likeId);
             getPosts()
         } catch (err) {
             console.log(err, "err in deleteLike Feed Page")

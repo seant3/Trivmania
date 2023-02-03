@@ -11,7 +11,7 @@ function create(postId) {
     }).then(res => res.json());
 }
 
-function deleteLike(likeId) {
+function removeLike(likeId) {
     return fetch(`${BASE_URL}/likes/${likeId}`, {
         method: "DELETE",
         headers: {
@@ -22,5 +22,5 @@ function deleteLike(likeId) {
 
 export default {
     create,
-    deleteLike
+    removeLike
 };
