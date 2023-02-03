@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 
-import { Container, Button, Menu, Item } from "semantic-ui-react";
+import { Container, Button, Menu, Item, Header, Segment, Grid, Message } from "semantic-ui-react";
 import shuffleService from "../../utils/shuffleService";
+import AnswerDisplay from "../../components/AnswerDisplay/AnswerDisplay";
 
 import triviaApi from "../../utils/triviaApi";
+
+import he from 'he'
 
 export default function PlayPage() {
     const [question, setQuestion] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState("");
-    const [incorrectAnswers, setIncorrectAnswers] = useState([]);
     const [allChoices, setAllChoices] = useState([]);
     const [questionNum, setQuestionNum] = useState(0);
     const [points, setPoints] = useState(0);
@@ -17,15 +19,14 @@ export default function PlayPage() {
         try {
         const response = await triviaApi.getQuestions();
         console.log(response.results, "this is the response from getQuestions")
-        setQuestion(response.results[questionNum].question)
+        setQuestion(he.decode(response.results[questionNum].question))
         setCorrectAnswer(response.results[questionNum].correct_answer)
-        // setIncorrectAnswers(response.results[questionNum].incorrect_answers)
         
         let answers = [];
         response.results[questionNum].incorrect_answers.map((incorrectAnswer) => {
-            answers.push(incorrectAnswer)  
+            answers.push(he.decode(incorrectAnswer))  
         });
-        answers.push(response.results[questionNum].correct_answer)
+        answers.push(he.decode(response.results[questionNum].correct_answer))
         const shuffledAnswers = shuffleService.shuffle(answers)
 
         setAllChoices(shuffledAnswers)
@@ -35,16 +36,35 @@ export default function PlayPage() {
 
     }
 
+    function verifyAnswer(e) {
+        if (e === correctAnswer) {
+            setPoints(points + 1);
+        }
+    }
+
     useEffect(() => {
         getQAndA();
        
     }, []);
 
     return (
-        <Container>
-            <div>{question}</div>
-            <div>{allChoices}</div>
-            <div></div>
-        </Container>
+        <Grid centered>
+            <Grid.Column>
+            <Header>
+                {`Question #${questionNum +1}`}
+            </Header>
+            <Segment>
+                {question}
+            </Segment>
+            <Menu vertical fluid size="huge">
+                <AnswerDisplay allChoices={allChoices}/>
+            </Menu>
+            <Segment>
+                <Button type="submit" className="btn" size="large" fluid>
+                    Next
+                </Button>
+            </Segment>
+            </Grid.Column>
+        </Grid>
     )
 }
