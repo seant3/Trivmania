@@ -6,7 +6,7 @@ import PostDisplay from '../../components/PostDisplay/PostDisplay';
 
 import { Grid } from "semantic-ui-react";
 
-import * as postsQuestionAPI from "../../utils/postQuestionApi";
+import * as postQuestionAPI from "../../utils/postQuestionApi";
 import * as likesApi from "../../utils/likesApi";
 
 export default function FeedPage({loggedUser}) {
@@ -35,7 +35,7 @@ export default function FeedPage({loggedUser}) {
     async function handleAddPost(post) {
         console.log(post, "this is post")
         try {
-            const response = await postsQuestionAPI.create(post);
+            const response = await postQuestionAPI.create(post);
             console.log(response);
             setPosts([response.post, ...posts])
         } catch (err) {
