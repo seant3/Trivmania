@@ -16,7 +16,12 @@ export default function PostCard({post, isProfile, addLike, deleteLike, loggedUs
           </Card.Header>
         </Card.Content>
         <Card.Content textAlign="left">
-          <Card.Description>{post.question}</Card.Description>
+          <Card.Description>Question: {post.question}</Card.Description>
+          <br/>
+          <Card.Description>Correct Answer: {post.correctAnswer}</Card.Description>
+          <Card.Description>Incorrect Answer: {post.incorrectAnswer1}</Card.Description>
+          <Card.Description>Incorrect Answer: {post.incorrectAnswer2}</Card.Description>
+          <Card.Description>Incorrect Answer: {post.incorrectAnswer3}</Card.Description>
         </Card.Content>
         <Card.Content extra textAlign={"right"}>
           <Icon name={"heart"} size="large" color={likeColor} onClick={clickHandler} />

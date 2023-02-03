@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { Grid } from "semantic-ui-react";
+import { Grid, Header } from "semantic-ui-react";
 
 import ProfileBio from '../../components/ProfileBio/ProfileBio';
 import PageHeader from '../../components/PageHeader/PageHeader';
@@ -78,6 +78,7 @@ export default function ProfilePage({loggedUser}) {
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column>
+                    <Header>{user.username}'s Added Questions</Header>
                     <PostDisplay 
                         posts={posts}
                         isProfile={true}

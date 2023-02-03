@@ -10,7 +10,11 @@ async function create(req, res) {
     console.log(req.user, " <==== req.user in Posts Controller", req.body)
     try {
         const post = await Post.create({
-            question: req.body.data,
+            question: req.body.data.question,
+            correctAnswer: req.body.data.correctAnswer,
+            incorrectAnswer1: req.body.data.incorrectAnswer1,
+            incorrectAnswer2: req.body.data.incorrectAnswer2,
+            incorrectAnswer3: req.body.data.incorrectAnswer3,
             user: req.user._id,
         });
         await post.populate('user')

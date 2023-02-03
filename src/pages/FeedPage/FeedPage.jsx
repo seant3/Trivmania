@@ -33,10 +33,10 @@ export default function FeedPage({loggedUser}) {
     }
 
     async function handleAddPost(post) {
-        console.log(post, "this is post")
+        console.log(post, "this is post in handleAddPost")
         try {
             const response = await postQuestionApi.create(post);
-            console.log(response);
+            console.log(response, "response from handleAddPost");
             setPosts([response.post, ...posts])
         } catch (err) {
             console.log(err.message);

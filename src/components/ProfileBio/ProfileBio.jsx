@@ -9,7 +9,7 @@ export default function ProfileBio({user}) {
                         <h3>{user.username}</h3>
                     </Segment>
                     <Segment>
-                        <span>Bio: {user.bio}</span>
+                        <span>Best trivia subject: {user.bio}</span>
                     </Segment>
                 </Grid.Column>
             </Grid.Row>

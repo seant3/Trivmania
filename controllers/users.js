@@ -3,8 +3,6 @@ import Post from '../models/post.js'
 import jwt from "jsonwebtoken"
 const SECRET = process.env.SECRET;
 
-
-
 export default {
   signup,
   login,

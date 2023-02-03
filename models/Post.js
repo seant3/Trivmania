@@ -11,7 +11,9 @@ const postSchema = new mongoose.Schema({
     category: String,
     question: String,
     correctAnswer: String,
-    wrongAnswers: [],
+    incorrectAnswer1: String,
+    incorrectAnswer2: String,
+    incorrectAnswer3: String,
     likes: [likeSchema]
 })
 

@@ -7,7 +7,6 @@ export default function Question({verifyAnswer, choice, isCorrect}) {
                     key={choice}
                     name={choice}
                     onClick={verifyAnswer}
-                    color="blue"
                     active={false}
                 />
         )
