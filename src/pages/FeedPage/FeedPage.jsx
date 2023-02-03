@@ -65,7 +65,7 @@ export default function FeedPage({loggedUser}) {
         <Grid centered>
             <Grid.Row>
                 <Grid.Column>
-                <PageHeader />
+                 <PageHeader />
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
