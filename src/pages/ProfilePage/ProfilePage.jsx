@@ -8,7 +8,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import PostDisplay from '../../components/PostDisplay/PostDisplay';
 
 import userService from '../../utils/userService';
-import * as likesApi from "../../utils/likesApi";
+import likesApi from "../../utils/likesApi";
 
 
 

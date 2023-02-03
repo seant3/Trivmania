@@ -16,6 +16,7 @@ import './config/database.js'
 
 // Require controllers here
 const app = express();
+app.set('view engine', 'ejs');
 
 // console.log(assetsRouter)
 // add in when the app is ready to be deployed
