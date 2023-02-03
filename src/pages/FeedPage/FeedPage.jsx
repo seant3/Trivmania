@@ -6,8 +6,8 @@ import PostDisplay from '../../components/PostDisplay/PostDisplay';
 
 import { Grid } from "semantic-ui-react";
 
-import postQuestionApi from '../../utils/postQuestionAPI';
-import likesApi from '../../utils/likesApi';
+import postQuestionApi from '../../utils/postQuestionAPI.js';
+import likesApi from '../../utils/likesApi.js';
 
 export default function FeedPage({loggedUser}) {
     const [posts, setPosts] = useState([]);
