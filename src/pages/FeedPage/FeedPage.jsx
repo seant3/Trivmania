@@ -7,7 +7,7 @@ import PostDisplay from '../../components/PostDisplay/PostDisplay';
 import { Grid } from "semantic-ui-react";
 
 import postQuestionApi from '../../utils/postQuestionAPI';
-import likesApi from '../../utils/likesApi';
+import likeButton from '../../utils/likeButton';
 
 export default function FeedPage({loggedUser}) {
     const [posts, setPosts] = useState([]);
@@ -15,7 +15,7 @@ export default function FeedPage({loggedUser}) {
 
     async function addLike(postId) {
         try {
-            const data = await likesApi.create(postId);
+            const data = await likeButton.create(postId);
             console.log(data, " this is from addLike")
             getPosts()
         } catch (err) {
@@ -25,7 +25,7 @@ export default function FeedPage({loggedUser}) {
 
     async function deleteLike(likeId) {
         try {
-            const data = await likesApi.removeLike(likeId);
+            const data = await likeButton.removeLike(likeId);
             getPosts()
         } catch (err) {
             console.log(err, "err in deleteLike Feed Page")

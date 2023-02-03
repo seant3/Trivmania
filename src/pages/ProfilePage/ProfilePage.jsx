@@ -8,7 +8,7 @@ import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import PostDisplay from '../../components/PostDisplay/PostDisplay';
 
 import userService from '../../utils/userService';
-import likesApi from "../../utils/likesApi";
+import likeButton from "../../utils/likeButton";
 
 
 
@@ -21,7 +21,7 @@ export default function ProfilePage({loggedUser}) {
 
     async function addLike(postId) {
         try {
-            const data = await likesApi.create(postId);
+            const data = await likeButton.create(postId);
             getProfile();
         } catch (err) {
             console.log(err, "err in addLike Feed Page")
@@ -30,7 +30,7 @@ export default function ProfilePage({loggedUser}) {
 
     async function deleteLike(likeId) {
         try {
-            const data = await likesApi.deleteLike(likeId);
+            const data = await likeButton.deleteLike(likeId);
             getProfile();
         } catch (err) {
             console.log(err, "err in deleteLike Feed Page")
