@@ -30,7 +30,7 @@ export default function ProfilePage({loggedUser}) {
 
     async function deleteLike(likeId) {
         try {
-            const data = await likeButton.deleteLike(likeId);
+            const data = await likeButton.removeLike(likeId);
             getProfile();
         } catch (err) {
             console.log(err, "err in deleteLike Feed Page")
