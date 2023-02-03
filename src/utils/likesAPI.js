@@ -19,3 +19,8 @@ export function deleteLike(likeId) {
         }
     }).then(res => res.json());
 }
+
+export default {
+    create,
+    deleteLike
+}
