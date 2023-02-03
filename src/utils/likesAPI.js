@@ -23,4 +23,4 @@ function deleteLike(likeId) {
 export default {
     create,
     deleteLike
-}
+};
