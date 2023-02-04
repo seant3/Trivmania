@@ -1,8 +1,15 @@
 const Categories = [
     {
+      key: 0,
+      text: "Any Category",
+      value: 0,
+      
+    },
+    {
       key: 9,
+      text: "General Knowledge",
       value: 9,
-      text: "General Knowledge"
+      
     },
     {
       key: 10,
@@ -119,4 +126,6 @@ const Categories = [
       value: 32,
       text: "Entertainment: Cartoon & Animations"
     }
-  ]
+  ] 
+
+  export default Categories;

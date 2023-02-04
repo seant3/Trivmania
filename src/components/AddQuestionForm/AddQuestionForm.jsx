@@ -32,7 +32,7 @@ export default function AddQuestionForm({handleAddPost}){
                     name="question"
                     value={state.question}
                     placeholder="What question do you want to add to the game?"
-                    onChange={handleChange}
+                    onChange={(handleChange)}
                     required
                 />
                 <Form.Input
