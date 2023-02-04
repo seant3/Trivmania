@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import shuffleService from "../../utils/shuffleService";
 import AnswerDisplay from "../../components/AnswerDisplay/AnswerDisplay";
+import ScoreDisplay from "../ScoreDisplay/ScoreDisplay";
 import { Container, Button, Menu, Item, Header, Segment, Grid, Message } from "semantic-ui-react";
 
 import he from 'he';
@@ -12,11 +13,9 @@ export default function StartGame({data}) {
     const [questionNum, setQuestionNum] = useState(0);
     const [points, setPoints] = useState(0);
     const [isCorrect, setIsCorrect] = useState({answer: ""})
-    // const [isPlaying, setIsPlaying] = useState(false)
+    const [displayResults, setDisplayResults] = useState(false)
 
     function getQAndA() {
-        
-        
         setQuestion(he.decode(data[questionNum].question))
         setCorrectAnswer(data[questionNum].correct_answer)
         
@@ -28,8 +27,6 @@ export default function StartGame({data}) {
         const shuffledAnswers = shuffleService.shuffle(answers)
 
         setAllChoices(shuffledAnswers)
-        // setIsPlaying(true)
-
     }
 
     function verifyAnswer(e, { name }) {
@@ -50,7 +47,12 @@ export default function StartGame({data}) {
         setIsCorrect({
             answer: ""
         })
-        setQuestionNum((questionNum) => questionNum +1);
+        
+        if (questionNum +1 == data.length) {
+            setDisplayResults(true)
+        } else {
+            setQuestionNum((questionNum) => questionNum +1);
+        }
     }
 
     useEffect(() => {
@@ -61,31 +63,31 @@ export default function StartGame({data}) {
 
     return (
         <>
-        
-                <Grid centered>
-                    <Grid.Column>
-                        <Header>
-                            {`Question #${questionNum + 1}`}<br></br>
-                            <span>Points:{points}</span>
-                        </Header>
-                        <Segment>
-                            {question}
-                            <Menu fluid pointing vertical>
-                                <AnswerDisplay allChoices={allChoices} verifyAnswer={verifyAnswer} isCorrect={isCorrect}/>
-                            </Menu>
-                        </Segment>
-                                
-                        <Segment>
-                        <Button onClick={nextQuestion} type="submit" className="btn" size="large" fluid>
-                            Next
-                        </Button> 
-                        </Segment>
-                    </Grid.Column>
-                </Grid>
-        
-    
-                
-            
+            {displayResults ?
+                <ScoreDisplay points={points}/> :
+                <>
+                    <Grid centered>
+                        <Grid.Column>
+                            <Header>
+                                {`Question #${questionNum + 1}`}<br></br>
+                                <span>Points:{points}</span>
+                            </Header>
+                            <Segment>
+                                {question}
+                                <Menu fluid pointing vertical>
+                                    <AnswerDisplay allChoices={allChoices} verifyAnswer={verifyAnswer} isCorrect={isCorrect}/>
+                                </Menu>
+                            </Segment>
+                                    
+                            <Segment>
+                            <Button onClick={nextQuestion} type="submit" className="btn" size="large" fluid>
+                                Next
+                            </Button> 
+                            </Segment>
+                        </Grid.Column>
+                    </Grid>
+             </>   
+            }
             
         </>
         

@@ -46,7 +46,8 @@ export default function PlayPage() {
                     onChange={(e, { value}) => setDifficulty(value)}
                     
                 />
-                <button onClick={getData}>Start Game</button></>
+                <button onClick={getData}>Start Game</button>
+            </>
         }   
     </>
         
