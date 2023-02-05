@@ -5,8 +5,9 @@ import { Dropdown, Container, Button, Menu, Item, Header, Segment, Grid, Message
 import StartGame from "../../components/StartGame/StartGame";
 
 import triviaApi from "../../utils/triviaApi";
-import categoriesArray from "../../utils/categoriesArray"
-import difficultyArray from "../../utils/difficultyArray"
+import categoriesArray from "../../utils/categoriesArray";
+import difficultyArray from "../../utils/difficultyArray";
+import postQuestionApi from "../../utils/postQuestionAPI";
 
 export default function PlayPage() {
     
@@ -22,10 +23,21 @@ export default function PlayPage() {
         setIsPlaying(true)
     }  
 
+    async function handleAddPost(score) {
+        console.log(score, "this is post in handleAddPost")
+        try {
+            await postQuestionApi.create(score);
+            console.log(score, "score from handleAddPost");
+        } catch (err) {
+            console.log(err.message);
+            setError("Error creating post, try again");
+        }
+    }
+
     return (
        <>
         {isPlaying ? 
-            <StartGame data={data} isPlaying={isPlaying}/> :
+            <StartGame handleAddPost={handleAddPost} data={data} isPlaying={isPlaying} category={category} difficulty={difficulty}/> :
                          
             <>
                 <Dropdown

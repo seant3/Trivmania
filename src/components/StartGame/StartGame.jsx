@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import shuffleService from "../../utils/shuffleService";
 import AnswerDisplay from "../../components/AnswerDisplay/AnswerDisplay";
-import ScoreDisplay from "../ScoreDisplay/ScoreDisplay";
+import EndGameDisplay from "../EndGameDisplay/EndGameDisplay";
 import { Container, Button, Menu, Item, Header, Segment, Grid, Message } from "semantic-ui-react";
 
 import he from 'he';
 
-export default function StartGame({data}) {
+export default function StartGame({data, handleAddPost, category, difficulty}) {
     const [question, setQuestion] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState("");
     const [allChoices, setAllChoices] = useState([]);
     const [questionNum, setQuestionNum] = useState(0);
     const [points, setPoints] = useState(0);
     const [isCorrect, setIsCorrect] = useState({answer: ""})
-    const [displayResults, setDisplayResults] = useState(false)
+    const [gameOver, setGameOver] = useState(false)
+    const [showNext, setShowNext] = useState(false)
 
     function getQAndA() {
         setQuestion(he.decode(data[questionNum].question))
@@ -27,6 +28,7 @@ export default function StartGame({data}) {
         const shuffledAnswers = shuffleService.shuffle(answers)
 
         setAllChoices(shuffledAnswers)
+        setShowNext(false);
     }
 
     function verifyAnswer(e, { name }) {
@@ -41,6 +43,7 @@ export default function StartGame({data}) {
         setIsCorrect({
             answer: correctAnswer
         })
+        setShowNext(true);
     }
 
     function nextQuestion() {
@@ -49,7 +52,7 @@ export default function StartGame({data}) {
         })
         
         if (questionNum +1 == data.length) {
-            setDisplayResults(true)
+            setGameOver(true)
         } else {
             setQuestionNum((questionNum) => questionNum +1);
         }
@@ -63,8 +66,8 @@ export default function StartGame({data}) {
 
     return (
         <>
-            {displayResults ?
-                <ScoreDisplay points={points}/> :
+            {gameOver ?
+                <EndGameDisplay points={points} handleAddPost={handleAddPost} category={category} difficulty={difficulty}/> :
                 <>
                     <Grid centered>
                         <Grid.Column>
@@ -78,12 +81,13 @@ export default function StartGame({data}) {
                                     <AnswerDisplay allChoices={allChoices} verifyAnswer={verifyAnswer} isCorrect={isCorrect}/>
                                 </Menu>
                             </Segment>
-                                    
+                            {showNext ?        
                             <Segment>
                             <Button onClick={nextQuestion} type="submit" className="btn" size="large" fluid>
                                 Next
                             </Button> 
-                            </Segment>
+                            </Segment> : ''
+                            }
                         </Grid.Column>
                     </Grid>
              </>   

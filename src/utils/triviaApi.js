@@ -1,5 +1,3 @@
-import tokenService from './tokenService';
-
 const BASE_URL = 'https://opentdb.com/api.php?amount=10';
 
 function getQuestions(category, difficulty) {

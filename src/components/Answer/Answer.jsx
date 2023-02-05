@@ -8,6 +8,7 @@ export default function Question({verifyAnswer, choice, isCorrect}) {
                     name={choice}
                     onClick={verifyAnswer}
                     active={false}
+                    disabled={false}
                 />
         )
     }
@@ -20,6 +21,7 @@ export default function Question({verifyAnswer, choice, isCorrect}) {
                 onClick={verifyAnswer}
                 color={color}
                 active={true}
+                disabled={true}
             />
     )
 }
