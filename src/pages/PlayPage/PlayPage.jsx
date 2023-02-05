@@ -37,7 +37,7 @@ export default function PlayPage() {
     return (
        <>
         {isPlaying ? 
-            <StartGame handleAddPost={handleAddPost} data={data} isPlaying={isPlaying} category={category} difficulty={difficulty}/> :
+            <StartGame handleAddPost={handleAddPost} data={data} setIsPlaying={setIsPlaying} category={category} difficulty={difficulty}/> :
                          
             <>
                 <Dropdown

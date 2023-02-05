@@ -1,8 +1,6 @@
 import { Button } from "semantic-ui-react"
 
-import PlayPage from "../../pages/PlayPage/PlayPage";
-
-export default function ScoreDisplay({ points, handleAddPost, category, difficulty }) {
+export default function ScoreDisplay({ points, handleAddPost, category, difficulty, setIsPlaying }) {
 
     function handleOnClick(e) {
         e.preventDefault();
@@ -15,13 +13,17 @@ export default function ScoreDisplay({ points, handleAddPost, category, difficul
         });
     }
 
+    function resetGame(e) {
+        setIsPlaying(false);
+    }
+
     return (
         <>
             <div>Your Score is: {points}</div>
             <Button onClick={handleOnClick} type="submit" className="btn">
                         Post Your Score
             </Button>
-            <Button onClick={<PlayPage />} type="submit" className="btn">
+            <Button onClick={resetGame} type="submit" className="btn">
                         Play Again!
             </Button>
         </>

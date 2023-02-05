@@ -6,7 +6,7 @@ import { Container, Button, Menu, Item, Header, Segment, Grid, Message } from "s
 
 import he from 'he';
 
-export default function StartGame({data, handleAddPost, category, difficulty}) {
+export default function StartGame({data, handleAddPost, category, difficulty, setIsPlaying}) {
     const [question, setQuestion] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState("");
     const [allChoices, setAllChoices] = useState([]);
@@ -67,7 +67,7 @@ export default function StartGame({data, handleAddPost, category, difficulty}) {
     return (
         <>
             {gameOver ?
-                <EndGameDisplay points={points} handleAddPost={handleAddPost} category={category} difficulty={difficulty}/> :
+                <EndGameDisplay setIsPlaying={setIsPlaying} points={points} handleAddPost={handleAddPost} category={category} difficulty={difficulty}/> :
                 <>
                     <Grid centered>
                         <Grid.Column>
