@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Dropdown, Container, Button, Menu, Item, Header, Segment, Grid, Message } from "semantic-ui-react";
+import { Dropdown, Card, Container, Button, Menu, Item, Header, Segment, Grid, Message, GridRow, GridColumn } from "semantic-ui-react";
 
 import StartGame from "../../components/StartGame/StartGame";
 
@@ -38,30 +38,42 @@ export default function PlayPage() {
        <>
         {isPlaying ? 
             <StartGame handleAddPost={handleAddPost} data={data} setIsPlaying={setIsPlaying} category={category} difficulty={difficulty}/> :
-                         
-            <>
-                <Dropdown
-                    placeholder='Select Category'
-                    fluid
-                    selection
-                    options={categoriesArray} 
-                    value={category}
-                    onChange={(e, { value}) => setCategory(value)}
-                    
-                />
-                <Dropdown
-                    placeholder='Select Difficulty'
-                    fluid
-                    selection
-                    options={difficultyArray} 
-                    value={difficulty}
-                    onChange={(e, { value}) => setDifficulty(value)}
-                    
-                />
-                <button onClick={getData}>Start Game</button>
-            </>
+            <Grid textAlign="center" style={{ height: "60vh" }} verticalAlign="middle">
+                
+                    <GridColumn style={{ maxWidth: 450 }}>                
+                        <Card.Group>
+                            <Card fluid>
+                                <Dropdown
+                                    placeholder='Select Category'
+                                    
+                                    selection
+                                    options={categoriesArray} 
+                                    value={category}
+                                    onChange={(e, { value}) => setCategory(value)}
+                                    
+                                />
+                            </Card>
+                            <Card fluid>
+                                <Dropdown
+                                    placeholder='Select Difficulty'
+                                    
+                                    selection
+                                    options={difficultyArray} 
+                                    value={difficulty}
+                                    onChange={(e, { value}) => setDifficulty(value)}
+                                    
+                                />
+                            </Card>
+                        </Card.Group>
+                        <Segment basic textAlign={"center"}>
+                                <Button compact size='massive'  onClick={getData}>Start Game</Button>
+                        </Segment>
+                    </GridColumn>
+                
+            </Grid>
         }   
-    </>
+        </>
+            
         
     )
 }

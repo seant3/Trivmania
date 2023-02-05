@@ -90,7 +90,7 @@ export default function ProfilePage({loggedUser}) {
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column>
-                    <Header>{user.username}'s' Trivia Scores</Header>
+                    <Header>{user.username}'s Trivia Scores</Header>
                 </Grid.Column>
             </Grid.Row>
             

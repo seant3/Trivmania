@@ -42,7 +42,7 @@ export default function SignupPage({handleSignupOrLogin}) {
     }
 
     return (
-      <container class="Signup-container">
+      
         <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
          <Grid.Column style={{ maxWidth: 450 }}>
            <Header as="h2" color="teal" textAlign="center">
@@ -98,6 +98,6 @@ export default function SignupPage({handleSignupOrLogin}) {
            </Message>
          </Grid.Column>
        </Grid>
-       </container>
+       
     );
 }

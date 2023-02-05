@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import shuffleService from "../../utils/shuffleService";
 import AnswerDisplay from "../../components/AnswerDisplay/AnswerDisplay";
 import EndGameDisplay from "../EndGameDisplay/EndGameDisplay";
-import { Container, Button, Menu, Item, Header, Segment, Grid, Message } from "semantic-ui-react";
+import { Icon, Container, Button, Menu, Item, Header, Segment, Grid, Message } from "semantic-ui-react";
 
 import he from 'he';
 
@@ -18,7 +18,7 @@ export default function StartGame({data, handleAddPost, category, difficulty, se
 
     function getQAndA() {
         setQuestion(he.decode(data[questionNum].question))
-        setCorrectAnswer(data[questionNum].correct_answer)
+        setCorrectAnswer(he.decode(data[questionNum].correct_answer))
         
         let answers = [];
         data[questionNum].incorrect_answers.map((incorrectAnswer) => {
@@ -69,27 +69,37 @@ export default function StartGame({data, handleAddPost, category, difficulty, se
             {gameOver ?
                 <EndGameDisplay setIsPlaying={setIsPlaying} points={points} handleAddPost={handleAddPost} category={category} difficulty={difficulty}/> :
                 <>
-                    <Grid centered>
-                        <Grid.Column>
-                            <Header>
-                                {`Question #${questionNum + 1}`}<br></br>
-                                <span>Points:{points}</span>
-                            </Header>
+                    
+                    <Grid textAlign="center" style={{ height: "60vh" }} verticalAlign="middle">
+                    
+                        <Grid.Column style={{ maxWidth: 450 }}>
+                        <Segment.Group horizontal>
+                            <Segment>{`Question #${questionNum + 1}`}</Segment>
+                            
+                            <Segment>Points: {points}</Segment>
+                        </Segment.Group> 
+                                 
+                        
                             <Segment>
                                 {question}
                                 <Menu fluid pointing vertical>
                                     <AnswerDisplay allChoices={allChoices} verifyAnswer={verifyAnswer} isCorrect={isCorrect}/>
                                 </Menu>
                             </Segment>
-                            {showNext ?        
-                            <Segment>
-                            <Button onClick={nextQuestion} type="submit" className="btn" size="large" fluid>
-                                Next
+                            
+                        </Grid.Column>
+                        
+                    </Grid>
+                    {showNext ?        
+                            <Segment basic>
+                            <Button animated onClick={nextQuestion} type="submit" className="btn" size="large" fluid>
+                                <Button.Content visible>Next</Button.Content>
+                                <Button.Content hidden>
+                                    <Icon name='arrow right' />
+                                </Button.Content>
                             </Button> 
                             </Segment> : ''
                             }
-                        </Grid.Column>
-                    </Grid>
              </>   
             }
             
