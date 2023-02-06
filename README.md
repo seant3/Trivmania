@@ -12,8 +12,6 @@ My 6 year old actually came up with the name and logo idea!  He is very proud of
 
 [Deployed Link](https://dead-pear-harp-seal-hem.cyclic.app/)
 
-[Planning Materials](https://trello.com/b/mFz2jGIt/project-4)
-
 #### Technologies Used
 
 * Javascript
@@ -39,3 +37,4 @@ My 6 year old actually came up with the name and logo idea!  He is very proud of
 * Post scores to your profile after you finish a game
 * Updates on aesthetics
 * Incorporate user questions into a new category that can be played
+* Implement the avatar API
