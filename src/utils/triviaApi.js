@@ -1,4 +1,4 @@
-const BASE_URL = 'https://opentdb.com/api.php?amount=10';
+const BASE_URL = 'https://opentdb.com/api.php?amount=1';
 
 function getQuestions(category, difficulty) {
     console.log(category, difficulty, "<<<API category and difficulty")

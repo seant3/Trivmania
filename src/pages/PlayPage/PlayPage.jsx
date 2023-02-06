@@ -38,9 +38,8 @@ export default function PlayPage({handleLogout, loggedUser}) {
     return (
        <>
         {isPlaying ? 
-            <StartGame handleAddPost={handleAddPost} data={data} setIsPlaying={setIsPlaying} category={category} difficulty={difficulty}/> :
-            
-            
+            <StartGame handleLogout={handleLogout} loggedUser={loggedUser} handleAddPost={handleAddPost} data={data} setIsPlaying={setIsPlaying} category={category} difficulty={difficulty}/>
+             :
             <Grid centered style={{ height: "95vh" }}>
                 <Grid.Row>
                     <Grid.Column >
@@ -49,7 +48,6 @@ export default function PlayPage({handleLogout, loggedUser}) {
                 </Grid.Row>
                 <Image 
                             src="../public/images/Trivmania.png"
-                            
                         />
                 <Grid.Row>
                     <Grid.Column>
