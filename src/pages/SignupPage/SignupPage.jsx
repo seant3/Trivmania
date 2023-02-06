@@ -82,8 +82,8 @@ export default function SignupPage({handleSignupOrLogin}) {
                  required
                />
                <Form.TextArea
-                 label="bio"
-                 name="bio"
+                 label="Best trivia subject:"
+                 name="about"
                  placeholder="What's your best trivia subject?"
                  onChange={handleChange}
                />
