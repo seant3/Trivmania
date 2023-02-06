@@ -11,13 +11,12 @@ export default function PageHeader({handleLogout}){
                 </Link>
             </Header>
             <Header as="h4" floated="right">
-                <Link to="" onClick={handleLogout}>
-                    Logout
-                </Link>
-            </Header>
-            <Header as="h4" textAlign="center">
                 <Link to="/play">
                     Play Game
+                </Link>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <Link to="" onClick={handleLogout}>
+                    Logout
                 </Link>
             </Header>
             

@@ -85,7 +85,7 @@ export default function StartGame({data, handleAddPost, category, difficulty, se
                         
                             <Segment>
                                 {question}
-                                <Menu fluid pointing vertical>
+                                <Menu fluid vertical>
                                     <AnswerDisplay allChoices={allChoices} verifyAnswer={verifyAnswer} isCorrect={isCorrect}/>
                                 </Menu>
                             </Segment>
