@@ -93,16 +93,18 @@ export default function StartGame({data, handleAddPost, category, difficulty, se
                         </Grid.Column>
                         </Grid.Row>
                     <Grid.Row>
-                    {showNext ?        
-                            <Segment basic>
+                        <Segment basic>
+                        {showNext ?        
+                            
                                 <Button animated onClick={nextQuestion} type="submit" className="btn" size="large" fluid>
                                     <Button.Content visible>Next</Button.Content>
                                     <Button.Content hidden>
                                         <Icon name='arrow right' />
                                     </Button.Content>
                                 </Button> 
-                            </Segment> : ''
+                             : ""
                             }
+                        </Segment>
                     </Grid.Row>
                </Grid>
             }

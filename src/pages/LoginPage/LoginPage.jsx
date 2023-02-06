@@ -1,7 +1,7 @@
 import "./LoginPage.css";
 
 import { useState } from "react";
-import { Button, Form, Grid, Header, Segment, Message } from "semantic-ui-react";
+import { Button, Image, Form, Grid, Header, Segment, Message } from "semantic-ui-react";
 
 import { useNavigate, Link } from "react-router-dom";
 
@@ -41,8 +41,8 @@ export default function LoginPage({handleSignupOrLogin}) {
     return (
         <Grid textAlign="center" style={{ height: "95vh" }} verticalAlign="middle">
          <Grid.Column style={{ maxWidth: 450 }}>
-           <Header as="h2" textAlign="center">
-              Login
+          <Header as="h2" textAlign="center">
+              <Image src="https://imgur.com/gteinTi.png" size='mini'/>Login to your Account
            </Header>
            <Form autoComplete="off" onSubmit={handleSubmit}>
              <Segment stacked>

@@ -5,12 +5,15 @@ export default function PageHeader({handleLogout, loggedUser}){
     return (
         <Segment clearing style={{ maxHeight: 75 }}>
             <Header as='h4' floated="left">
-                <Link to="/">
-                     <Image src="https://imgur.com/gteinTi.png" size="mini"/>
-                     
-                </Link>
+                <Link to="/"><Image 
+                    src="https://imgur.com/NWrY8Xz.png"
+                    size="medium"
+                    />
+               </Link>
             </Header>
             <Header as="h4" floated="right">
+                
+                
                 <Link to="/play">
                     Play Game
                 </Link>
