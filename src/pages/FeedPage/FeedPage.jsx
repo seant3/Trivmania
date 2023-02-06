@@ -9,7 +9,7 @@ import { Grid } from "semantic-ui-react";
 import postQuestionApi from '../../utils/postQuestionAPI';
 import likeButton from '../../utils/likeButton';
 
-export default function FeedPage({loggedUser}) {
+export default function FeedPage({loggedUser, handleLogout}) {
     const [posts, setPosts] = useState([]);
     const [error, setError] = useState("");
 
@@ -60,12 +60,19 @@ export default function FeedPage({loggedUser}) {
     }, []);
 
 
-
+    if (error) {
+        return (
+            <>
+                <PageHeader handleLogout={handleLogout} loggedUser={loggedUser}/>
+                <ErrorMessage error={error} />
+            </>
+        )
+    }
     return (  
         <Grid centered>
             <Grid.Row>
                 <Grid.Column>
-                 <PageHeader />
+                 <PageHeader handleLogout={handleLogout} loggedUser={loggedUser}/>
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>

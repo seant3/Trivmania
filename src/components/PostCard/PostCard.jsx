@@ -1,7 +1,7 @@
 import { Card, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-export default function PostCard({post, isProfile, addLike, deleteLike, loggedUser}) { 
+export default function PostCard({post, addLike, deleteLike, loggedUser}) { 
     const likedIndex = post.likes.findIndex(like => like.username === loggedUser.username);
     const likeColor = likedIndex > -1 ? 'blue' : 'grey';
     const clickHandler = likedIndex > -1 ? () => deleteLike(post.likes[likedIndex]._id): () => addLike(post._id)

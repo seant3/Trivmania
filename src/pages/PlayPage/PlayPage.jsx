@@ -1,15 +1,16 @@
 import { useState } from "react";
 
-import { Dropdown, Card, Container, Button, Menu, Item, Header, Segment, Grid, Message, GridRow, GridColumn } from "semantic-ui-react";
+import { Dropdown, Card, Container, Button, Menu, Item, Header, Image, Segment, Grid, Message, GridRow, GridColumn } from "semantic-ui-react";
 
 import StartGame from "../../components/StartGame/StartGame";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 import triviaApi from "../../utils/triviaApi";
 import categoriesArray from "../../utils/categoriesArray";
 import difficultyArray from "../../utils/difficultyArray";
 import postQuestionApi from "../../utils/postQuestionAPI";
 
-export default function PlayPage() {
+export default function PlayPage({handleLogout, loggedUser}) {
     
     const [data, setData] = useState([])
     const [isPlaying, setIsPlaying] = useState(false)
@@ -38,9 +39,20 @@ export default function PlayPage() {
        <>
         {isPlaying ? 
             <StartGame handleAddPost={handleAddPost} data={data} setIsPlaying={setIsPlaying} category={category} difficulty={difficulty}/> :
-            <Grid textAlign="center" style={{ height: "60vh" }} verticalAlign="middle">
-                
-                    <GridColumn style={{ maxWidth: 450 }}>                
+            
+            
+            <Grid centered style={{ height: "95vh" }}>
+                <Grid.Row>
+                    <Grid.Column >
+                         <PageHeader handleLogout={handleLogout} loggedUser={loggedUser}/>
+                    </Grid.Column>
+                </Grid.Row>
+                <Image 
+                            src="../public/images/Trivmania.png"
+                            
+                        />
+                <Grid.Row>
+                    <Grid.Column>
                         <Card.Group>
                             <Card fluid>
                                 <Dropdown
@@ -68,8 +80,8 @@ export default function PlayPage() {
                         <Segment basic textAlign={"center"}>
                                 <Button compact size='massive'  onClick={getData}>Start Game</Button>
                         </Segment>
-                    </GridColumn>
-                
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
         }   
         </>

@@ -12,7 +12,7 @@ import likeButton from "../../utils/likeButton";
 
 
 
-export default function ProfilePage({loggedUser}) {
+export default function ProfilePage({loggedUser, handleLogout}) {
     const [posts, setPosts] = useState([])
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
@@ -58,27 +58,23 @@ export default function ProfilePage({loggedUser}) {
         if(error) {
             return (
                 <>
-                <PageHeader/>
-                <ErrorMessage error={error}/>;
+                    <PageHeader handleLogout={handleLogout} loggedUser={loggedUser}/>
+                    <ErrorMessage error={error}/>;
                 </>
             )
         }
 
     return (
-        <Grid>
-            <Grid.Row>
-                <Grid.Column>
-                    <PageHeader />
+        <Grid centered columns={1}>
+                <Grid.Column fluid>
+                    <PageHeader handleLogout={handleLogout} loggedUser={loggedUser}/>
                 </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-                <Grid.Column>
+            
+                <Grid.Column fluid >
                     <ProfileBio user={user}/>
                 </Grid.Column>
-            </Grid.Row>
             <Grid.Row>
-                <Grid.Column>
-                    <Header>{user.username}'s Added Questions</Header>
+                <Grid.Column style={{ maxWidth: 450 }}>
                     <PostDisplay 
                         posts={posts}
                         isProfile={true}
@@ -89,8 +85,7 @@ export default function ProfilePage({loggedUser}) {
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column>
-                    <Header>{user.username}'s Trivia Scores</Header>
+                <Grid.Column style={{ maxWidth: 450 }}>
                 </Grid.Column>
             </Grid.Row>
             
