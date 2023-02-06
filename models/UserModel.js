@@ -55,4 +55,4 @@ userSchema.methods.comparePassword = function(tryPassword, cb) {
   });
 };
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model('UserModel', userSchema);
