@@ -8,4 +8,4 @@ const scoreSchema = mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId }
 })
 
-export default mongoose.model('ScoreM', postSchema);
+export default mongoose.model('Score', postSchema);

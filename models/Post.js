@@ -15,4 +15,4 @@ const postSchema = new mongoose.Schema({
     likes: [likeSchema],
 })
 
-export default mongoose.model('PostM', postSchema);
+export default mongoose.model('Post', postSchema);

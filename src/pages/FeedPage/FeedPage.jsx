@@ -16,6 +16,7 @@ export default function FeedPage({loggedUser, handleLogout}) {
     async function addLike(postId) {
         try {
             const data = await likeButton.create(postId);
+            console.log(data, " this is from addLike")
             getPosts()
         } catch (err) {
             console.log(err, "err in addLike Feed Page")
@@ -35,6 +36,7 @@ export default function FeedPage({loggedUser, handleLogout}) {
         console.log(post, "this is post in handleAddPost")
         try {
             const response = await postQuestionApi.create(post);
+            console.log(response, "response from handleAddPost");
             setPosts([response.post, ...posts])
         } catch (err) {
             console.log(err.message);
@@ -43,8 +45,10 @@ export default function FeedPage({loggedUser, handleLogout}) {
     }
 
     async function getPosts() {
+        console.log("getPosts is firing")
         try {
             const response = await postQuestionApi.getAll();
+            console.log(response, " response content in getPosts");
             setPosts(response.data);
         } catch (err) {
             console.log(err.message, " this is the error in GetPosts")
