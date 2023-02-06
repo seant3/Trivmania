@@ -26,7 +26,7 @@ export default function ScoreDisplay({ points, handleAddPost, category, difficul
                 </Grid.Column>
             </Grid.Row>
             <Image 
-            src="../public/images/Trivmania.png"
+            src="https://imgur.com/NWrY8Xz.png"
             
             />
             <Grid.Row>

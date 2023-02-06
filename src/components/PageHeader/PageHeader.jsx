@@ -6,7 +6,7 @@ export default function PageHeader({handleLogout}){
         <Segment clearing style={{ maxHeight: 75 }}>
             <Header as='h4' floated="left">
                 <Link to="/">
-                     <Image src="../public/images/triv-logo.png" size="mini"/>
+                     <Image src="https://imgur.com/gteinTi.png" size="mini"/>
                      
                 </Link>
             </Header>

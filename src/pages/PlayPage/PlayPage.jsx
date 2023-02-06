@@ -44,7 +44,7 @@ export default function PlayPage({handleLogout, loggedUser}) {
                     </Grid.Column>
                 </Grid.Row>
                 <Image 
-                            src="../public/images/Trivmania.png"
+                            src="https://imgur.com/NWrY8Xz.png"
                         />
                 <Grid.Row>
                     <Grid.Column>
