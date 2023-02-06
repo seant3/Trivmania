@@ -1,4 +1,4 @@
-import Score from '../models/score.js';
+import Score from '../models/Score.js';
 
 export default {
     create,

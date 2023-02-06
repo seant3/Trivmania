@@ -1,5 +1,5 @@
 import User from "../models/User.js"
-import Post from '../models/post.js'
+import Post from '../models/Post.js'
 import jwt from "jsonwebtoken"
 const SECRET = process.env.SECRET;
 
