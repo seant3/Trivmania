@@ -10,7 +10,7 @@ My 6 year old actually came up with the name and logo idea!  He is very proud of
 
 ##### Getting Started
 
-[Deployed Link](https://dead-pear-harp-seal-hem.cyclic.app/)
+[Deployed Link](https://trivmania.cyclic.app)
 
 #### Technologies Used
 

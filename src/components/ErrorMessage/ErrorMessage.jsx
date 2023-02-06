@@ -1,3 +1,3 @@
-export default function ErrorMessage(props){
-    return <span className={"error"}>{props.error}</span>
+export default function ErrorMessage(props) {
+  return <span className={"error"}>{props.error}</span>;
 }

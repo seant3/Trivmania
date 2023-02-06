@@ -1,12 +1,13 @@
 .ui.grid {
-    background: #a2d2ff;
+  background: #a2d2ff;
 }
 
-.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
-    background: #c5f4f8;
+.ui.form .field .ui.input input,
+.ui.form .fields .field .ui.input input {
+  background: #c5f4f8;
 }
 
-.ui.center.aligned.header, .ui.centered.header {
-    color: #4f51cc;
+.ui.center.aligned.header,
+.ui.centered.header {
+  color: #4f51cc;
 }
-

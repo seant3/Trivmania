@@ -1,26 +1,26 @@
-import tokenService from './tokenService';
+import tokenService from "./tokenService";
 
-const BASE_URL = '/api/users/';
+const BASE_URL = "/api/users/";
 
 function signup(user) {
-  console.log(user.body, "This is in the userService")
-  return fetch(BASE_URL + 'signup', {
-    method: 'POST',
-    headers: new Headers({'Content-Type': 'application/json'}),  // If you are sending a file/photo over
-    // what do datatype do you need to change this too?
-    body: JSON.stringify(user)
-  })
-  .then(res => {
-    if (res.ok) return res.json();
-    // Probably a duplicate email
-
-    return res.json().then(response => {
-      console.log(response.error);
-      throw new Error('Email already taken!');
+  return (
+    fetch(BASE_URL + "signup", {
+      method: "POST",
+      headers: new Headers({ "Content-Type": "application/json" }), // If you are sending a file/photo over
+      // what do datatype do you need to change this too?
+      body: JSON.stringify(user),
     })
-  })
-  // Parameter destructuring!
-  .then(({token}) => tokenService.setToken(token));
+      .then((res) => {
+        if (res.ok) return res.json();
+        // Probably a duplicate email
+
+        return res.json().then((response) => {
+          throw new Error("Email already taken!");
+        });
+      })
+      // Parameter destructuring!
+      .then(({ token }) => tokenService.setToken(token))
+  );
   // The above could have been written as
   //.then((token) => token.token);
 }
@@ -34,35 +34,35 @@ function logout() {
 }
 
 function login(creds) {
-  return fetch(BASE_URL + 'login', {
-    method: 'POST',
-    headers: new Headers({'Content-Type': 'application/json'}),
-    body: JSON.stringify(creds)
+  return fetch(BASE_URL + "login", {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(creds),
   })
-  .then(res => {
-    // Valid login if we have a status of 2xx (res.ok)
-    if (res.ok) return res.json();
-    throw new Error('Bad Credentials!');
-  })
-  .then(({token}) => tokenService.setToken(token));
+    .then((res) => {
+      // Valid login if we have a status of 2xx (res.ok)
+      if (res.ok) return res.json();
+      throw new Error("Bad Credentials!");
+    })
+    .then(({ token }) => tokenService.setToken(token));
 }
 
 function getProfile(username) {
   return fetch(BASE_URL + username, {
     headers: {
-            "Authorization": "Bearer " + tokenService.getToken(),
-            'Content-Type': 'application/json',
+      Authorization: "Bearer " + tokenService.getToken(),
+      "Content-Type": "application/json",
     },
-  }).then(res => {
-    if(res.ok) return res.json();
-    throw new Error('Bad Credentials!')
-  })
+  }).then((res) => {
+    if (res.ok) return res.json();
+    throw new Error("Bad Credentials!");
+  });
 }
 
 export default {
-  signup, 
+  signup,
   getUser,
   logout,
   login,
-  getProfile
+  getProfile,
 };
