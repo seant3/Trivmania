@@ -7,7 +7,6 @@ export default function ScoreDisplay({ points, handleAddPost, category, difficul
     function handleOnClick(e) {
         e.preventDefault();
         
-        console.log(points, "this is the handleSubmit from user input")
         handleAddPost({
             points: points,
             category: category,

@@ -2,7 +2,6 @@ import { Card } from "semantic-ui-react"
 import PostCard from "../PostCard/PostCard"
 
 function PostDisplay({posts, isProfile, loggedUser, addLike, deleteLike}) {
-   console.log(posts, "this is posts in PostDisplay")
  const postsJsx = posts.map((post) => {
     return <PostCard 
                post={post} 

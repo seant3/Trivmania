@@ -11,15 +11,12 @@ export default {
 
 
 async function signup(req, res) {
-  console.log("hitting signup router")
-  console.log(req.body)
   const user = new UserModel(req.body);
   try {
     await user.save();
     const token = createJWT(user);
     res.json({ token });
   } catch (err) {
-    // Probably a duplicate email
     res.status(400).json(err);
   }
 }
@@ -50,10 +47,8 @@ async function profile(req, res) {
     if(!user) return res.status(404).json({error: "User not found"})
 
     const posts = await PostM.find({user: user._id}).populate("user").exec();
-    console.log(posts, ' this is posts in Users Controller Profile')
     res.status(200).json({data: posts, user: user})
   } catch (err) {
-    console.log(err, "error in the Users Control Profile function")
     res.status(400).json({err})
   }
 }

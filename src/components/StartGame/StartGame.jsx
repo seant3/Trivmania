@@ -33,13 +33,11 @@ export default function StartGame({data, handleAddPost, category, difficulty, se
     }
 
     function verifyAnswer(e, { name }) {
-        console.log(name, "name")
         if (name === correctAnswer) {
             setIsCorrect({
                 answer: correctAnswer
             })
             setPoints(points + 1);
-            console.log(e.target, "e.target =======")
         }
         setIsCorrect({
             answer: correctAnswer

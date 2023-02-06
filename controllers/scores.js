@@ -6,7 +6,6 @@ export default {
 };
 
 async function create(req, res) {
-    console.log(req.user, " <==== req.user in Posts Controller", req.body)
     
     try {
         const post = await ScoreM.create({
@@ -19,7 +18,6 @@ async function create(req, res) {
         await post.populate('user')
         res.status(201).json({ post })
     } catch (err) {
-        console.log(err, "error in posts controller - create")  
         res.status(400).json({ err })      
     }
 }

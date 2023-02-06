@@ -41,7 +41,6 @@ export default function ProfilePage({loggedUser, handleLogout}) {
         console.log("Get profile in profile page firing")
             try {
                 const response = await userService.getProfile(username);
-                console.log(response, " response from getProfile in Profile Page");
 
                 setPosts(response.data);
                 setUser(response.user);

@@ -19,16 +19,13 @@ export default function PlayPage({handleLogout, loggedUser}) {
     
     async function getData() {
         const response = await triviaApi.getQuestions(category, difficulty);
-        console.log(response.results, "this is the response from getQuestions")
         setData(response.results);
         setIsPlaying(true)
     }  
 
     async function handleAddPost(score) {
-        console.log(score, "this is post in handleAddPost")
         try {
             await postQuestionApi.create(score);
-            console.log(score, "score from handleAddPost");
         } catch (err) {
             console.log(err.message);
             setError("Error creating post, try again");
