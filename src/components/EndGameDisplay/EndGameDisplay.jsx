@@ -31,7 +31,7 @@ export default function ScoreDisplay({ points, handleAddPost, category, difficul
             />
             <Grid.Row>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Segment>Your Score is: {points}</Segment>
+                    <Segment raised textAlign={"center"} as="h2">Your Score: {points}/10</Segment>
                     <Segment basic textAlign={"center"}>
                         <Button onClick={handleOnClick} type="submit" className="btn">
                                     Post Your Score
