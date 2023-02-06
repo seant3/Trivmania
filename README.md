@@ -38,4 +38,4 @@ My 6 year old actually came up with the name and logo idea!  He is very proud of
 * Add and remove "friends" to easily access from your profile
 * Post scores to your profile after you finish a game
 * Updates on aesthetics
-*
+* Incorporate user questions into a new category that can be played
