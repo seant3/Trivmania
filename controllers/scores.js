@@ -1,4 +1,4 @@
-import Score from '../models/Score.js';
+import ScoreM from '../models/ScoreM.js';
 
 export default {
     create,
@@ -9,7 +9,7 @@ async function create(req, res) {
     console.log(req.user, " <==== req.user in Posts Controller", req.body)
     
     try {
-        const post = await Score.create({
+        const post = await ScoreM.create({
             score: req.body.data.points,
             category: req.body.data.category,
             difficulty: req.body.data.difficulty,
@@ -26,7 +26,7 @@ async function create(req, res) {
 
 async function index(req, res) {
     try {
-        const posts = await Score.find({}).populate("user").exec();
+        const posts = await ScoreM.find({}).populate("user").exec();
         res.status(200).json({ data: posts });
     } catch (err) {
         res.status(400).json({ err });

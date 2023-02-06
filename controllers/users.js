@@ -1,5 +1,5 @@
-import User from "../models/User.js"
-import Post from '../models/Post.js'
+import UserModel from "../models/UserModel.js"
+import PostM from '../models/PostM.js'
 import jwt from "jsonwebtoken"
 const SECRET = process.env.SECRET;
 
@@ -13,7 +13,7 @@ export default {
 async function signup(req, res) {
   console.log("hitting signup router")
   console.log(req.body)
-  const user = new User(req.body);
+  const user = new UserModel(req.body);
   try {
     await user.save();
     const token = createJWT(user);
@@ -27,7 +27,7 @@ async function signup(req, res) {
 async function login(req, res) {
  
   try {
-    const user = await User.findOne({email: req.body.email});
+    const user = await UserModel.findOne({email: req.body.email});
    
     if (!user) return res.status(401).json({err: "bad credentials"});
     user.comparePassword(req.body.password, (err, isMatch) => {
@@ -46,10 +46,10 @@ async function login(req, res) {
 
 async function profile(req, res) {
   try {
-    const user = await User.findOne({username: req.params.username})
+    const user = await UserModel.findOne({username: req.params.username})
     if(!user) return res.status(404).json({error: "User not found"})
 
-    const posts = await Post.find({user: user._id}).populate("user").exec();
+    const posts = await PostM.find({user: user._id}).populate("user").exec();
     console.log(posts, ' this is posts in Users Controller Profile')
     res.status(200).json({data: posts, user: user})
   } catch (err) {

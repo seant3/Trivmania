@@ -1,4 +1,4 @@
-import Post from '../models/Post.js'
+import PostM from '../models/PostM.js'
 
 export default {
     create,
@@ -7,7 +7,7 @@ export default {
 
 async function create(req, res) {
     try {
-        const post = await Post.findById(req.params.id);
+        const post = await PostM.findById(req.params.id);
         post.likes.push({username: req.user.username, userId: req.user._id});
         await post.save()
         res.status(201).json({data: 'like added'})
@@ -18,7 +18,7 @@ async function create(req, res) {
 
 async function deleteLike(req, res) {
     try {
-        const post = await Post.findOne({'likes._id': req.params.id, 'likes.username': req.user.username});
+        const post = await PostM.findOne({'likes._id': req.params.id, 'likes.username': req.user.username});
         post.likes.remove(req.params.id);
         await post.save()
         res.json({data: 'like removed'})
