@@ -6,7 +6,7 @@ There is a game function that allows you to choose a category and difficulty of 
 
 You will also be able to interact with other users through the community page.  Here you can post new questions you would like to see included in the app and then others can vote if they like it!  On your profile, all of your questions will be listed.  Future functionality will allow you to also post your scores from the game.
 
-My 6 year old actually came up with the name and logo idea!  He is very proud of it!  😄 
+My 6 year old actually came up with the name and logo idea!  He is very proud of it!  😄
 
 ##### Getting Started
 
@@ -26,10 +26,13 @@ My 6 year old actually came up with the name and logo idea!  He is very proud of
 
 ##### Screenshots
 
-![Homepage/Logged out screen](public/images/Screen1.png)
-![Homepage/Logged out screen](public/images/Screen2.png)
-![Homepage/Logged out screen](public/images/Screen3.png)
-![Homepage/Logged out screen](public/images/Screen4.png)
+![Sign Up Page](public/images/SampleSignUp.png)
+![Login Screen](public/images/SampleLoginScreen.png)
+![Posting Screen](public/images/SamplePostScreen.png)
+![Play Game Page](public/images/SamplePlayHome.png)
+![Game Screen](public/images/SampleGameScreen.png)
+![Color Change Answers](public/images/SampleColorChange.png)
+![End Game Screen](public/images/SampleEndGameScreen.png)
 
 #### Next Steps - Icebox Items
 
