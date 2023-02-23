@@ -127,7 +127,7 @@ export default function StartGame({
                   </Button.Content>
                 </Button>
               ) : (
-                ""
+                <div style={{ height: "42px" }} class="ui placeholder"></div>
               )}
             </Segment>
           </Grid.Row>
